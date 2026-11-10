@@ -1,17 +1,128 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Direct-Mapped Cache Simulator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Direct-Mapped Cache Simulator</h1>
+    <div class="container">
 
-    <p>Computer Architecture Project</p>
-    <p>Group 13</p>
-    <p>Muhammad Sheroz - 24-CS-167</p>
-    <p>Muhammad Abdullah - FA-2024/BS CS/172</p>
+        <h1>Direct-Mapped Cache Simulator</h1>
+
+        <p>Computer Architecture Project</p>
+        <p>Group 13</p>
+
+        <p>Muhammad Sheroz - 24-CS-167</p>
+        <p>Muhammad Abdullah - FA-2024/BS CS/172</p>
+
+        <hr>
+
+        <h2>Memory Address Input</h2>
+
+        <div class="input-area">
+            <input type="number" placeholder="Enter Address (0-255)">
+            <button>Access</button>
+        </div>
+
+        <h2>Cache Table (8 Lines)</h2>
+
+        <table>
+            <tr>
+                <th>Index</th>
+                <th>Tag</th>
+                <th>Data</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>0</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>6</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td>-</td>
+                <td>Empty</td>
+                <td>-</td>
+            </tr>
+        </table>
+
+        <h2>Cache Results</h2>
+
+        <div class="counters">
+
+            <div class="counter-box">
+                <h3>Total Hits</h3>
+                <p>0</p>
+            </div>
+
+            <div class="counter-box">
+                <h3>Total Misses</h3>
+                <p>0</p>
+            </div>
+
+            <div class="counter-box">
+                <h3>Hit Ratio</h3>
+                <p>0%</p>
+            </div>
+
+        </div>
+
+        <div class="result">
+            <h3>Access Result</h3>
+            <p>Waiting for memory address...</p>
+        </div>
+
+    </div>
 
 </body>
 </html>
+
