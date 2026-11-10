@@ -1,0 +1,152 @@
+Computer Architecture
+
+Chapter 2
+
+
+
+
+
+
+Group	‘13’
+Project Title	Direct-Mapped Cache Simulator
+Members	Reg no
+Muhammad Abdullah	24-CS-172
+Muhammad Sheroz	24-CS-167
+	
+
+
+	
+Submitted to:
+
+Sir Muhammad Hassan Butt
+
+
+
+Department of Computer Science
+HITEC University, Taxila
+
+
+
+
+1.Cache Memory:
+Cache Memory is a small and high speed storage in a computer system. It stores the data that is frequently used by the CPU.
+
+There are three levels of Cache Memory:
+L1 or Level 1 Cache:
+The first level of cache, located inside the processor. It has small memory size i.e. 2 KB to 64 KB.
+
+L2 or Level 2 Cache:
+The second level of cache, located inside or outside the processor. It has the memory size of  256 KB to 512 KB.
+
+L3 or Level 3 Cache:
+The third level of cache, located outside the processor. It increases the performance of the L1 and L2 cache. It is shared by the cores of the processor. Its memory size ranges from 1 MB to 8 MB.
+
+2.Direct Cache Mapping:
+It is a cache structure in which each block of main memory maps to only one cache line.This mapping is determined by the memory address.
+
+3.Cache Lines:
+Cache lines are the basic unit of data transfer in the CPU. It determines where the required data is located in the block. In many architectures, the size of a single cache line is about 64 bytes.
+
+4.Memory Address:
+It is a unique location number which is used to identify the location of the data or instruction stored in the main memory.
+
+5.Memory Block:
+Group of consecutive memory locations that is transferred to the cache from main memory is called memory block. 
+
+6.Index:
+It identifies the cache line where the memory block is stored.
+
+Formula:
+Index=Memory Address%No. Of cache lines
+
+
+Example:
+Memory Address=24
+Index=24%8=0
+
+Which means the data located on address 24 will map to the index 0 or cache line 0.
+
+7.Tag:
+It is a unique identifier for a memory block stored in a cache line. Since multiple blocks can map to the same index, tag is used to identify them.
+
+Formula:
+Tag=Memory Address/No. Of cache lines
+
+Example:
+Address=24
+Tag=24/8
+Tag=3
+
+8.Valid bit:
+A valid bit is an indicator of whether the cache line contains the valid data or not.
+It has two values:
+Valid bit=0: means the cache line is empty or does not contain valid data.
+Valid bit=1: means the cache line has the valid data.
+
+9.Cache HIT:
+When CPU found the required data inside the cache and the data is present in the cache, then the cache hit occurs.
+
+10. Cache MISS:
+When the required data is not available inside the cache, and CPU retrieves the data from the main memory, then the cache miss occurs, and the requested data is loaded in the cache.
+
+11. HIT Ratio:
+HIT Ratio is used to measure the cache performance by the formula:
+
+HIT Ratio=no. of cache hits/no. of searches*100
+
+
+
+Examples:
+
+1.First Access:
+Given:
+Memory Address=32
+Cache Lines=8
+All cache lines are empty at the start.
+
+Calculations:
+Index=32%8=0
+Tag=32/8=4
+Valid bit=0
+Cache Status=MISS
+
+The required memory block will be stored at line 0 of cache with Tag=4.
+
+2.Second Access:
+Given:
+Memory Address=32
+Cache Lines=8
+
+Calculations:
+Index=32%8=0
+Tag=32/8=4
+Cache line 0 already has the tag 4 and the Valid bit is also 1.
+Cache Status=HIT
+
+The required memory block is already available at cache line 0.
+
+
+
+
+Psudo Code:
+
+1.Start
+2.Initially set all the cache line to 0.
+3.Set the HIT and MISS counters to 0.
+4.Take the memory address from the user.
+5.Check address validity.
+6.If not valid, display error.
+7.Otherwise, Calculate the index.
+8.Then Calculate the tag.
+9.Check the valid bit and the tag of the selected cache line.
+10.If the valid bit is 1, and the tag matches the requested tag
+Display HIT
+Increment the HIT counter by 1.
+11.Else
+Display MISS
+Increase MISS counter
+Update the cache line with new tag.
+Set the valid bit to 1. 
+12.Calculate the HIT ratio.
+13.Display Index, Tag, Cache status, and HIT ratio.
+14.End
