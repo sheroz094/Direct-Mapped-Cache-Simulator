@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,120 +8,98 @@
 
 <body>
 
+    <h1>Direct-Mapped Cache Simulator</h1>
+    <h3>Group 13 | Computer Architecture</h3>
+
     <div class="container">
 
-        <h1>Direct-Mapped Cache Simulator</h1>
+        <h2>Memory Address</h2>
 
-        <p>Computer Architecture Project</p>
-        <p>Group 13</p>
+        <input
+            type="number"
+            id="address"
+            min="0"
+            max="255"
+            placeholder="Enter address (0-255)"
+        >
 
-        <p>Muhammad Sheroz - FA-2024/BS CS/167</p>
-        <p>Muhammad Abdullah - FA-2024/BS CS/172</p>
+        <button id="accessBtn">Access</button>
 
-        <hr>
+        <h2>Address Information</h2>
 
-        <h2>Memory Address Input</h2>
+        <p>Index: <span id="index">--</span></p>
 
-        <div class="input-area">
-            <input type="number" placeholder="Enter Address (0-255)">
-            <button>Access</button>
-        </div>
+        <p>Tag: <span id="tag">--</span></p>
 
-        <h2>Cache Table (8 Lines)</h2>
+        <h3>Result: <span id="result">--</span></h3>
+
+        <h2>Cache Table</h2>
 
         <table>
             <tr>
                 <th>Index</th>
                 <th>Tag</th>
-                <th>Data</th>
                 <th>Status</th>
             </tr>
 
             <tr>
                 <td>0</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag0">Empty</td>
+                <td id="status0">Empty</td>
             </tr>
 
             <tr>
                 <td>1</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag1">Empty</td>
+                <td id="status1">Empty</td>
             </tr>
 
             <tr>
                 <td>2</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag2">Empty</td>
+                <td id="status2">Empty</td>
             </tr>
 
             <tr>
                 <td>3</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag3">Empty</td>
+                <td id="status3">Empty</td>
             </tr>
 
             <tr>
                 <td>4</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag4">Empty</td>
+                <td id="status4">Empty</td>
             </tr>
 
             <tr>
                 <td>5</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag5">Empty</td>
+                <td id="status5">Empty</td>
             </tr>
 
             <tr>
                 <td>6</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag6">Empty</td>
+                <td id="status6">Empty</td>
             </tr>
 
             <tr>
                 <td>7</td>
-                <td>-</td>
-                <td>Empty</td>
-                <td>-</td>
+                <td id="tag7">Empty</td>
+                <td id="status7">Empty</td>
             </tr>
         </table>
 
-        <h2>Cache Results</h2>
+        <h2>Cache Statistics</h2>
 
-        <div class="counters">
+        <p>Hits: <span id="hits">0</span></p>
 
-            <div class="counter-box">
-                <h3>Total Hits</h3>
-                <p>0</p>
-            </div>
+        <p>Misses: <span id="misses">0</span></p>
 
-            <div class="counter-box">
-                <h3>Total Misses</h3>
-                <p>0</p>
-            </div>
-
-            <div class="counter-box">
-                <h3>Hit Ratio</h3>
-                <p>0%</p>
-            </div>
-
-        </div>
-
-        <div class="result">
-            <h3>Access Result</h3>
-            <p>Waiting for memory address...</p>
-        </div>
+        <p>Hit Ratio: <span id="hitRatio">0%</span></p>
 
     </div>
 
 </body>
 </html>
-
