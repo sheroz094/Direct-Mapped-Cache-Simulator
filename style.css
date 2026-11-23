@@ -37,6 +37,16 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+button:hover {
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0, 0, 255, 0.3);
+      }
+
+button:active {
+    transform: scale(0.95);
 }
 
 table {
