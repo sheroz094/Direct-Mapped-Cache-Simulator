@@ -1,105 +1,123 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Direct-Mapped Cache Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <h1>Direct-Mapped Cache Simulator</h1>
-    <h3>Group 13 | Computer Architecture</h3>
 
     <div class="container">
 
-        <h2>Memory Address</h2>
+        <header>
+            <h1>Direct-Mapped Cache Simulator</h1>
+            <p>Computer Architecture Lab Project</p>
+            <p>Group 13 | HITEC University Taxila</p>
+        </header>
 
-        <input
-            type="number"
-            id="address"
-            min="0"
-            max="255"
-            placeholder="Enter address (0-255)"
-        >
+        <section class="student-info">
+            <p><strong>Student:</strong> Muhammad Sheroz</p>
+            <p><strong>Roll No:</strong> 24-CS-167</p>
+            <p><strong>Partner:</strong> Muhammad Abdullah</p>
+        </section>
 
-        <button id="accessBtn">Access</button>
+        <section class="input-section">
+            <h2>Memory Address Input</h2>
 
-        <h2>Address Information</h2>
+            <label for="address">Enter Memory Address (0-255)</label>
 
-        <p>Index: <span id="index">--</span></p>
+            <input
+                type="number"
+                id="address"
+                min="0"
+                max="255"
+                placeholder="Enter address"
+            >
 
-        <p>Tag: <span id="tag">--</span></p>
+            <button type="button" onclick="accessCache()">
+                Access Cache
+            </button>
 
-        <h3>Result: <span id="result">--</span></h3>
+            <p id="message"></p>
+        </section>
 
-        <h2>Cache Table</h2>
+        <section class="result-section">
+            <h2>Access Result</h2>
 
-        <table>
-            <tr>
-                <th>Index</th>
-                <th>Tag</th>
-                <th>Status</th>
-            </tr>
+            <div class="result-grid">
+                <div class="result-card">
+                    <h3>Index</h3>
+                    <p id="index">--</p>
+                </div>
 
-            <tr>
-                <td>0</td>
-                <td id="tag0">Empty</td>
-                <td id="status0">Empty</td>
-            </tr>
+                <div class="result-card">
+                    <h3>Tag</h3>
+                    <p id="tag">--</p>
+                </div>
 
-            <tr>
-                <td>1</td>
-                <td id="tag1">Empty</td>
-                <td id="status1">Empty</td>
-            </tr>
+                <div class="result-card">
+                    <h3>Cache Status</h3>
+                    <p id="status">--</p>
+                </div>
+            </div>
+        </section>
 
-            <tr>
-                <td>2</td>
-                <td id="tag2">Empty</td>
-                <td id="status2">Empty</td>
-            </tr>
+        <section class="cache-section">
+            <h2>Cache Table (8 Lines)</h2>
 
-            <tr>
-                <td>3</td>
-                <td id="tag3">Empty</td>
-                <td id="status3">Empty</td>
-            </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cache Line</th>
+                        <th>Valid Bit</th>
+                        <th>Tag</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
 
-            <tr>
-                <td>4</td>
-                <td id="tag4">Empty</td>
-                <td id="status4">Empty</td>
-            </tr>
+                <tbody>
+                    <tr><td>0</td><td id="valid0">0</td><td id="tag0">--</td><td id="data0">Empty</td></tr>
+                    <tr><td>1</td><td id="valid1">0</td><td id="tag1">--</td><td id="data1">Empty</td></tr>
+                    <tr><td>2</td><td id="valid2">0</td><td id="tag2">--</td><td id="data2">Empty</td></tr>
+                    <tr><td>3</td><td id="valid3">0</td><td id="tag3">--</td><td id="data3">Empty</td></tr>
+                    <tr><td>4</td><td id="valid4">0</td><td id="tag4">--</td><td id="data4">Empty</td></tr>
+                    <tr><td>5</td><td id="valid5">0</td><td id="tag5">--</td><td id="data5">Empty</td></tr>
+                    <tr><td>6</td><td id="valid6">0</td><td id="tag6">--</td><td id="data6">Empty</td></tr>
+                    <tr><td>7</td><td id="valid7">0</td><td id="tag7">--</td><td id="data7">Empty</td></tr>
+                </tbody>
+            </table>
+        </section>
 
-            <tr>
-                <td>5</td>
-                <td id="tag5">Empty</td>
-                <td id="status5">Empty</td>
-            </tr>
+        <section class="counter-section">
+            <h2>Cache Statistics</h2>
 
-            <tr>
-                <td>6</td>
-                <td id="tag6">Empty</td>
-                <td id="status6">Empty</td>
-            </tr>
+            <div class="result-grid">
+                <div class="result-card">
+                    <h3>Total Hits</h3>
+                    <p id="hits">0</p>
+                </div>
 
-            <tr>
-                <td>7</td>
-                <td id="tag7">Empty</td>
-                <td id="status7">Empty</td>
-            </tr>
-        </table>
+                <div class="result-card">
+                    <h3>Total Misses</h3>
+                    <p id="misses">0</p>
+                </div>
 
-        <h2>Cache Statistics</h2>
+                <div class="result-card">
+                    <h3>Hit Ratio</h3>
+                    <p id="ratio">0%</p>
+                </div>
+            </div>
+        </section>
 
-        <p>Hits: <span id="hits">0</span></p>
-
-        <p>Misses: <span id="misses">0</span></p>
-
-        <p>Hit Ratio: <span id="hitRatio">0%</span></p>
+        <footer>
+            <p>Direct-Mapped Cache Simulator | Group 13</p>
+        </footer>
 
     </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
