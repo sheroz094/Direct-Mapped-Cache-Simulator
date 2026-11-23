@@ -1,12 +1,17 @@
-function calcAddress(address)
+function calcAddress()
 {
+    let address=document.getElementById("address").value;
     let index=address%8;
     let tag=Math.floor(address/8);
-    console.log("Address: ", address);
-    console.log("Index: ", index);
-    console.log("Tag: ",tag);
-}
 
-calcAddress(24);
-calcAddress(32);
-calcAddress(40);
+    if(address<=0|| address>255)
+    {
+        alert("Invalid Address 🤬 !!! Try Again 😊");
+    }
+    else
+    {
+        document.getElementById("index").innerHTML=index;
+        document.getElementById("tag").innerHTML=tag;
+        document.getElementById("result").innerHTML=address;
+    }   
+}
