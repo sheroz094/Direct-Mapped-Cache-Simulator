@@ -18,25 +18,24 @@
         </header>
 
         <section class="student-info">
-            <p><strong>Student:</strong> Muhammad Sheroz</p>
+            <p><strong>Member 1:</strong> Muhammad Sheroz</p>
             <p><strong>Roll No:</strong> 24-CS-167</p>
-            <p><strong>Partner:</strong> Muhammad Abdullah</p>
+            <p><strong>Member 2:</strong> Muhammad Abdullah</p>
+            <p><strong>Roll No:</strong> 24-CS-172</p>
         </section>
 
         <section class="input-section">
             <h2>Memory Address Input</h2>
-
-            <label for="address">Enter Memory Address (0-255)</label>
 
             <input
                 type="number"
                 id="address"
                 min="0"
                 max="255"
-                placeholder="Enter address"
+                placeholder="Enter Memory Address (0-255)"
             >
 
-            <button type="button" onclick="accessCache()">
+            <button type="button" onclick="calcAddress()">
                 Access Cache
             </button>
 
@@ -48,6 +47,11 @@
 
             <div class="result-grid">
                 <div class="result-card">
+                    <h3>Address</h3>
+                    <p id="result">--</p>
+                </div>
+
+                <div class="result-card">
                     <h3>Index</h3>
                     <p id="index">--</p>
                 </div>
@@ -57,10 +61,10 @@
                     <p id="tag">--</p>
                 </div>
 
-                <div class="result-card">
+                <!-- <div class="result-card">
                     <h3>Cache Status</h3>
                     <p id="status">--</p>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -112,12 +116,12 @@
         </section>
 
         <footer>
-            <p>Direct-Mapped Cache Simulator | Group 13</p>
+            <p>&copy; Group 13 2026 - All Rights Reserved.</p>
         </footer>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 
 </body>
 </html>
